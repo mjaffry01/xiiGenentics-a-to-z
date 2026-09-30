@@ -75,7 +75,7 @@ const EXAMS = {
   "not-louder": {
     notes: [
       "Snapdragon red RR crossed with white rr gives all pink Rr. Pink selfed gives 1 red : 2 pink : 1 white. Segregation still happens. The statement 'segregation does not apply' is the false one. Pink Rr crossed with red RR gives only RR and Rr, so only red and pink, never white.",
-      "ABO uses three ideas at once: I^A and I^B are dominant over i, I^A and I^B are co-dominant with each other, and the three alleles in the population are multiple alleles. It is not incomplete dominance and it is not polygenic. Group O is ii, so both parents must be able to give i. A parent who is I^A I^B cannot have a child of group O. I^A i crossed with I^B i gives AB, A, B, and O in equal fractions, so O is 25 percent. I^A I^B crossed with I^A i gives four genotypes, I^A I^A, I^A i, I^A I^B, and I^B i, and three phenotypes, A, AB, and B.",
+      "ABO uses three ideas at once: I^A and I^B are dominant over i, I^A and I^B are co-dominant with each other, and the three alleles in the population are multiple alleles. It is not incomplete dominance and it is not polygenic. Group O is ii, so both parents must be able to give i. A parent who is I^A I^B cannot have a child of group O. I^A i crossed with I^B i gives AB, A, B, and O in equal fractions, so O is 25 percent. I^A I^B crossed with I^A i gives four genotypes, I^A I^A, I^A i, I^A I^B, and I^B i, and three phenotypes, A, AB, and B. If a paper says only that the father is group A and the mother is group B, all four groups remain possible, and O appears only when both carry i.",
       "Starch synthesis in pea is pleiotropy, not multiple alleles. Seed shape shows complete dominance. Starch-grain size shows incomplete dominance. Same gene, two ways of scoring."
     ],
     drills: [
@@ -114,12 +114,21 @@ const EXAMS = {
           ["Polygenic inheritance only.", false]
         ],
         why: "I^A and I^B dominate i, they co-dominate with each other, and three alleles exist in the population. The heterozygote is not a blend, and the trait is not a range built by many genes."
+      },
+      {
+        prompt: "Father group A, mother group B, genotypes not given. Which statement is the one AIIMS expects?",
+        choices: [
+          ["A, B, AB and O are all possible, and O only if both carry i.", true],
+          ["The child must be AB.", false],
+          ["The child cannot be O.", false]
+        ],
+        why: "Group A can be I^A I^A or I^A i. Group B can be I^B I^B or I^B i. Only the second pair of genotypes gives ii."
       }
     ]
   },
   "many-or-one": {
     notes: [
-      "Pleiotropy is one gene, several phenotypic effects. Polygenic inheritance is several genes adding toward one range, and papers call that a non-Mendelian pattern, not an autosomal-dominant pattern and not an X-linked pattern. Do not swap the two definitions."
+      "Pleiotropy is one gene, several phenotypic effects. Polygenic inheritance is several genes adding toward one range. Epistasis is different again: a gene at one place masks a gene at another place. That is non-allelic. Dominance is allelic, one letter of a pair hiding the other. AIIMS matching lists use exactly these four: pleiotropy is multiple effects of one gene, co-dominance is both alleles expressed, epistasis is non-allelic masking, mutation is a change in nucleotides."
     ],
     drills: [
       {
@@ -139,12 +148,30 @@ const EXAMS = {
           ["X-linked recessive.", false]
         ],
         why: "There is no single dominant-recessive class. The phenotype is a range."
+      },
+      {
+        prompt: "AIIMS match: epistasis is",
+        choices: [
+          ["Masking by a gene at a different place, so non-allelic.", true],
+          ["Both alleles of one gene expressed together.", false],
+          ["One gene with many effects.", false]
+        ],
+        why: "Both alleles expressed is co-dominance. One gene, many effects, is pleiotropy. Epistasis is between different genes."
+      },
+      {
+        prompt: "Assertion: epistasis is a kind of dominance. Reason: both are masking by the partner allele of the same gene. In the AIIMS pattern, the right choice is",
+        choices: [
+          ["Assertion false, reason false.", true],
+          ["Both true, and the reason explains the assertion.", false],
+          ["Assertion true, reason false.", false]
+        ],
+        why: "Dominance is allelic. Epistasis is non-allelic. The reason describes dominance, not epistasis, and the assertion equates the two, so both fail."
       }
     ]
   },
   chromosomes: {
     notes: [
-      "Sutton and Boveri proposed the chromosomal theory. Morgan verified it in Drosophila. Mendel did not know chromosomes. Robert Brown is a distractor in this list. Experimental verification, when that is the verb in the question, is Morgan."
+      "Sutton and Boveri proposed the chromosomal theory. Morgan verified it in Drosophila. The number of linkage groups equals the haploid chromosome number. A human has 23. Drosophila has 4. E. coli has one circular chromosome, so one linkage group. The genome is the complete haploid set of genetic material of the species. CPMT uses that sentence as the definition."
     ],
     drills: [
       {
@@ -155,6 +182,15 @@ const EXAMS = {
           ["Robert Brown.", false]
         ],
         why: "Proposal and experimental verification are different questions. Morgan is the verification."
+      },
+      {
+        prompt: "Linkage groups in a human, and in E. coli, are",
+        choices: [
+          ["23 and 1.", true],
+          ["46 and 1.", false],
+          ["23 and 46.", false]
+        ],
+        why: "Linkage groups equal the haploid set. Human n is 23. E. coli has a single circular chromosome."
       }
     ]
   },
@@ -170,7 +206,7 @@ const EXAMS = {
           ["The genes are on different chromosomes.", false],
           ["Each character is polygenic.", false]
         ],
-        why: "Free genes would give parental and recombinant types equally in a test cross. An excess of parental types is linkage."
+        why: "Free genes in a dihybrid test cross give 1:1:1:1, parental and recombinant types equally. An excess of parental types is linkage."
       },
       {
         prompt: "A gene moves from one linkage group to another by:",
@@ -201,7 +237,7 @@ const EXAMS = {
   },
   sex: {
     notes: [
-      "Grasshopper males are XO and females are XX. In a species where some animals have 23 chromosomes and others 24, the 23 are the males and the 24 are the females. Honey-bee drones are haploid, develop from unfertilised eggs, and make sperm by mitosis, not meiosis. A list that says males make sperm by meiosis is the false line. Birds are ZW in the female, so the egg decides the sex of the chick, not the sperm. A human mother's X chromosome can go to sons and to daughters. The human Y is the shorter sex chromosome. The male fruit fly is heterogametic. Half the sperm of a male grasshopper carry no sex chromosome."
+      "Grasshopper males are XO and females are XX. In a species where some animals have 23 chromosomes and others 24, the 23 are the males and the 24 are the females. Honey-bee drones are haploid, develop from unfertilised eggs, and make sperm by mitosis, not meiosis. A list that says males make sperm by meiosis is the false line. Birds are ZW in the female, so the egg decides the sex of the chick, not the sperm. A human mother's X chromosome can go to sons and to daughters. The human Y is the shorter sex chromosome. The male fruit fly is heterogametic. Half the sperm of a male grasshopper carry no sex chromosome. A holandric trait is on the Y. The father gives that chromosome to every son and to no daughter, so every son shows it. Criss-cross inheritance of an X-linked trait runs from father to daughter to her son. The Class 12 book treats Drosophila as XX and XY. Older AIIMS papers also asked Bridges' genic balance, the ratio of X chromosomes to sets of autosomes. Keep the book answer when the question is the Class 12 mechanism."
     ],
     drills: [
       {
@@ -230,6 +266,15 @@ const EXAMS = {
           ["In male grasshoppers, half the sperm lack a sex chromosome.", false]
         ],
         why: "In birds the female is ZW, so the egg carries either Z or W. The sperm are all Z."
+      },
+      {
+        prompt: "A holandric character is seen in",
+        choices: [
+          ["Every son of an affected father, and in no daughter.", true],
+          ["Every daughter of an affected father.", false],
+          ["Sons only when the mother is a carrier.", false]
+        ],
+        why: "Holandric means Y-linked. The father gives Y to every son and X, not Y, to every daughter."
       }
     ]
   },
@@ -237,7 +282,7 @@ const EXAMS = {
     notes: [
       "Purines in both DNA and RNA are adenine and guanine. Cytosine is a pyrimidine. Thymine is DNA only. Uracil is RNA only. The sugar in RNA is ribose. The sugar in DNA is deoxyribose. Arabinose is a trap and is in neither.",
       "Chargaff: A equals T, and G equals C, and the four percentages add to 100. If adenine is 30 percent, thymine is 30 percent, and guanine and cytosine are 20 percent each.",
-      "Histones are basic, positively charged, rich in lysine and arginine, and grouped as an octamer of eight molecules. They are not negatively charged and their character is not acidic. DNA is the negatively charged partner. Higher folding uses non-histone chromosomal proteins. In a bacterial nucleoid the DNA is still negatively charged and is held by positively charged proteins. A statement that says the DNA is positive and the proteins are negative has the charges backwards. Euchromatin is loosely packed and stains light. Heterochromatin is dense and stains dark.",
+      "Histones are basic, positively charged, rich in lysine and arginine, and grouped as an octamer of eight molecules. The DNA on that octamer is about 146 base pairs. With linker DNA the repeat is about 200, and histone H1 sits on the linker. They are not negatively charged and their character is not acidic. DNA is the negatively charged partner. Higher folding uses non-histone chromosomal proteins. In a bacterial nucleoid the DNA is still negatively charged and is held by positively charged proteins. A statement that says the DNA is positive and the proteins are negative has the charges backwards. Euchromatin is loosely packed and stains light. Heterochromatin is dense and stains dark.",
       "Length in metres, times 10 to the 9, gives nanometres. Divide by 0.34 to get base pairs. A diploid mammalian cell quoted as 6.6 billion base pairs is about 2.2 metres. A molecule of 1.1 metres is about 3.2 billion base pairs."
     ],
     work: {
@@ -265,7 +310,7 @@ const EXAMS = {
           ["Histones are rich in lysine and arginine.", false],
           ["Eight histone molecules form the octamer.", false]
         ],
-        why: "Histones are basic and positive. DNA is negative. The wrap only works because the charges are opposite in that direction."
+        why: "Histones are basic and positive. DNA is negative. The wrap only works because the charges are opposite in that direction. The octamer plus about 146 base pairs is the core. About 200 base pairs is the core plus the linker, where H1 sits."
       },
       {
         prompt: "In the nucleoid, the charges are:",
@@ -306,7 +351,7 @@ const EXAMS = {
   },
   copy: {
     notes: [
-      "DNA polymerase adds only in the 5-prime to 3-prime direction. It does not add 3-prime to 5-prime, and it does not add in both directions. The new strand built toward the replication fork is the leading strand. The other new strand is the lagging strand, made as Okazaki fragments and joined by ligase. The discontinuous pieces are Okazaki fragments, not polysomes and not polypeptides.",
+      "DNA polymerase adds only in the 5-prime to 3-prime direction. It does not add 3-prime to 5-prime, and it does not add in both directions. The new strand built toward the replication fork is the leading strand. The other new strand is the lagging strand, made as Okazaki fragments and joined by ligase. The discontinuous pieces are Okazaki fragments, not polysomes and not polypeptides. AIIMS names the enzymes the Class 12 page leaves unnamed: DNA polymerase III is the main copier in E. coli, and DNA polymerase I removes the RNA primer and fills that gap. Reverse transcriptase, from Temin and Baltimore, copies RNA back into DNA. That is the exception to the usual DNA-to-RNA arrow.",
       "Meselson and Stahl used E. coli, not the pea. Taylor used Vicia faba, not Drosophila. E. coli in that density experiment divides about every 20 minutes. Start with heavy DNA. After one generation every molecule is hybrid. After two generations half the molecules are hybrid and half are fully light. Ten heavy cells switched to light nitrogen for 60 minutes pass through three generations and become 80 cells, of which 60 have DNA with no heavy nitrogen left.",
       "In eukaryotes replication is in S phase. The enzyme of replication is DNA-dependent DNA polymerase, not RNA polymerase."
     ],
@@ -352,7 +397,7 @@ const EXAMS = {
   read: {
     notes: [
       "Write messenger RNA from the template by pairing, and write it 5-prime to 3-prime, with U where the template had A. The coding strand matches that RNA with T in place of U. The coding strand is not the strand that is copied. A template 3-prime-TACATGGCAAATATCCATTCA-5-prime gives 5-prime-AUGUACCGUUUAUAGGUAAGU-3-prime.",
-      "The code is a triplet, unambiguous and specific, degenerate, continuous, and nearly universal. It is not palindromic. AUG is methionine and the start. It is not methionine and phenylalanine. UAA, UAG, and UGA stop. UGA is not a start. AAA and AAG both mean lysine. George Gamow proposed the three-letter code. Khorana and Nirenberg read it.",
+      "The code is a triplet, unambiguous and specific, degenerate, continuous, and nearly universal. It is not palindromic. AUG is methionine and the start. It is not methionine and phenylalanine. UAA, UAG, and UGA stop. UGA is not a start. AAA and AAG both mean lysine. Arginine has six codons: CGU, CGC, CGA, CGG, AGA and AGG. That list is the AIIMS way of asking whether you know degeneracy in a real amino acid. Wobble, Crick's idea, is that the third base of a codon can pair less strictly, so fewer transfer RNAs than codons are enough. George Gamow proposed the three-letter code. Khorana and Nirenberg read it. In bacteria the first methionine on a new chain is formylated, so the initiator is fMet. In eukaryotes it is methionine. The amino acid is attached at the 3-prime CCA end of the transfer RNA.",
       "RNA polymerase I makes 28S, 18S, and 5.8S ribosomal RNA. Polymerase II makes the precursor of messenger RNA. Polymerase III makes transfer RNA, 5S ribosomal RNA, and snRNA. In bacteria, sigma helps the polymerase start and rho helps it stop. Sigma and rho are not the eukaryotic factors. The TATA box is part of a promoter. Splicing uses snRNPs. The same polymerase that transcribes also opens the helix.",
       "A transcription unit is promoter, structural gene, and terminator. The promoter is at the 5-prime side of the coding strand, binds RNA polymerase, and decides which strand is the template. The terminator is at the 3-prime side of the coding strand. All five of those claims are true together.",
       "After transcription in a eukaryote, introns are removed and exons joined, a methylated cap is added at the 5-prime end, and adenines are added at the 3-prime end. The primary transcript is not shipped to the cytoplasm before splicing. Base-pairing of two complementary RNAs is not one of those processing steps. Split genes are eukaryotic, not bacterial. The cap is not added at the 3-prime end.",
@@ -375,7 +420,25 @@ const EXAMS = {
           ["The code is palindromic, and UGA is the start.", false],
           ["AUG means both methionine and phenylalanine.", false]
         ],
-        why: "AUG is methionine only. UGA stops. AAA and AAG are both lysine, which is degeneracy, not a second meaning for AUG."
+        why: "AUG is methionine only. UGA stops. AAA and AAG are both lysine. Arginine uses six codons, CGU, CGC, CGA, CGG, AGA and AGG, which is degeneracy. Wobble at the third base is why one transfer RNA can serve more than one of those codons."
+      },
+      {
+        prompt: "Assertion: arginine is coded by one codon only. Reason: the genetic code is degenerate. The AIIMS choice is",
+        choices: [
+          ["Assertion false, reason true.", true],
+          ["Both true, and the reason explains the assertion.", false],
+          ["Both false.", false]
+        ],
+        why: "Degeneracy means several codons, not one, can mean the same amino acid. Arginine has six. The reason is true and it contradicts the assertion."
+      },
+      {
+        prompt: "Assertion: in bacteria, transcription occurs in a nucleus. Reason: bacteria have no nucleus, so transcription and translation can run together. The AIIMS choice is",
+        choices: [
+          ["Assertion false, reason true.", true],
+          ["Both true, and the reason explains the assertion.", false],
+          ["Assertion true, reason false.", false]
+        ],
+        why: "Eukaryotic transcription is nuclear. Bacterial transcription is in the cytoplasm, and that is why it can be coupled to translation."
       },
       {
         prompt: "RNA polymerase III transcribes:",
@@ -444,7 +507,7 @@ const EXAMS = {
   pedigree: {
     notes: [
       "A double horizontal line between a square and a circle means the couple are relatives. A single line is an ordinary couple.",
-      "Myotonic dystrophy is the textbook autosomal dominant example. Sickle-cell anaemia is autosomal recessive. Thalassemia is autosomal recessive. Haemophilia is X-linked recessive, not autosomal dominant, and not a chromosomal count. Colour blindness is X-linked recessive. Sickle-cell anaemia is not X-linked. A normal probe does not stick to a mutated sequence, so that sequence does not show on the film.",
+      "Myotonic dystrophy is the textbook autosomal dominant example. Inbreeding, which AIIMS asks beside these disorders, increases homozygosity. The false statement is that inbreeding increases heterozygosity. It can expose harmful recessives, which is inbreeding depression. Sickle-cell anaemia is autosomal recessive. Thalassemia is autosomal recessive. Haemophilia is X-linked recessive, not autosomal dominant, and not a chromosomal count. Colour blindness is X-linked recessive. Sickle-cell anaemia is not X-linked. A normal probe does not stick to a mutated sequence, so that sequence does not show on the film.",
       "Sons receive their X from their mother and their Y from their father. A colour-blind man married to a woman homozygous for normal vision has no colour-blind sons, because every son takes a normal X from her. A colour-blind woman is X^c X^c. If she marries a man whose own mother was colour-blind, that man is colour-blind too, and every child is colour-blind. A woman whose mother was haemophilic, but who is herself unaffected, is a carrier. With a normal husband the children can be a normal daughter, a carrier daughter, a normal son, or a haemophilic son. Two carriers of sickle-cell anaemia, HbA HbS crossed with HbA HbS, have a 25 percent chance of an affected HbS HbS child."
     ],
     work: {
@@ -504,7 +567,7 @@ const EXAMS = {
   },
   extra: {
     notes: [
-      "Down syndrome is an extra chromosome 21, from failure of chromosomes to separate, called non-disjunction. It is the autosomal case. Langdon Down described it in 1866. The signs papers list are short stature, a small round head, a furrowed tongue, a partly open mouth, a broad palm with one crease, and slowed physical and mental development. Turner syndrome is a missing X, 45, X, not an extra chromosome. Klinefelter syndrome is 47, XXY: overall male development, some breast development, sterile, and often tall. Klinefelter was not described by Langdon Down, is not short stature, and is not the developmental picture written for Down syndrome. XYY is a different karyotype and is not Down syndrome. No cell plate after telophase in a plant adds a whole set and causes polyploidy, not aneuploidy. Matching: Down syndrome with chromosome 21, alpha thalassemia with chromosome 16, beta thalassemia with chromosome 11, Klinefelter syndrome with the X chromosome."
+      "Down syndrome is an extra chromosome 21, from failure of chromosomes to separate, called non-disjunction. It is the autosomal case. Langdon Down described it in 1866. The signs papers list are short stature, a small round head, a furrowed tongue, a partly open mouth, a broad palm with one crease, and slowed physical and mental development. Turner syndrome is a missing X, 45, X, not an extra chromosome. Klinefelter syndrome is 47, XXY: overall male development, some breast development, sterile, and often tall. Klinefelter was not described by Langdon Down, is not short stature, and is not the developmental picture written for Down syndrome. XYY is a different karyotype and is not Down syndrome. A Barr body is an inactivated X. The number is the number of X chromosomes minus one. A normal woman has 1. Turner has 0. Klinefelter has 1. A person with three X chromosomes has 2. No cell plate after telophase in a plant adds a whole set and causes polyploidy, not aneuploidy. Matching: Down syndrome with chromosome 21, alpha thalassemia with chromosome 16, beta thalassemia with chromosome 11, Klinefelter syndrome with the X chromosome. Assertion and reason both hold, and the reason explains the assertion, when the assertion says these three syndromes are chromosomal disorders and the reason says they come from absence or excess of chromosomes rather than from one changed codon."
     ],
     drills: [
       {
@@ -533,12 +596,30 @@ const EXAMS = {
           ["A point mutation.", false]
         ],
         why: "The whole doubled set stays in one cell. Aneuploidy is gain or loss of individual chromosomes."
+      },
+      {
+        prompt: "Barr bodies in a normal woman, a Turner woman, and a Klinefelter man are",
+        choices: [
+          ["1, 0 and 1.", true],
+          ["1, 1 and 0.", false],
+          ["2, 1 and 1.", false]
+        ],
+        why: "Barr bodies equal the number of X chromosomes minus one. XX gives 1, X gives 0, XXY gives 1."
+      },
+      {
+        prompt: "Assertion: Down syndrome, Klinefelter syndrome and Turner syndrome are chromosomal disorders. Reason: each is an absence or an excess of a chromosome, not one changed codon. The AIIMS choice is",
+        choices: [
+          ["Both true, and the reason explains the assertion.", true],
+          ["Both true, and the reason does not explain the assertion.", false],
+          ["Assertion true, reason false.", false]
+        ],
+        why: "Sickle-cell anaemia is the changed-codon case. These three change the chromosome count, which is why they are chromosomal disorders."
       }
     ]
   },
   almost: {
     notes: [
-      "Expressed sequence tags are the genes that are read into RNA. Sequence annotation is the other method: sequence the whole genome, coding and non-coding, then assign functions afterwards. That blind whole-genome path is not called gene mapping and it is not called a tag. Chromosome 1 was the last human chromosome finished, and it is also the one listed with the most genes. The Y chromosome has the fewest in that list.",
+      "Expressed sequence tags are the genes that are read into RNA. Sequence annotation is the other method: sequence the whole genome, coding and non-coding, then assign functions afterwards. That blind whole-genome path is not called gene mapping and it is not called a tag. Chromosome 1 was the last human chromosome finished, and it is also the one listed with the most genes. The Y chromosome has the fewest in that list. A gene library, the AIIMS phrase, is the collection of cloned DNA fragments that together represent a genome.",
       "Fingerprint order: isolate the DNA and cut it, separate the pieces by electrophoresis, blot them onto a membrane, hybridise with a labelled VNTR probe, then detect the bands by autoradiography. Polymorphism in those repeats is the basis of both fingerprinting and genetic mapping."
     ],
     drills: [

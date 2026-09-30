@@ -124,27 +124,68 @@ const DIAGRAMS = {
     <p class="why">One gene, the other way: a fault in phenylalanine hydroxylase changes several characters at once.</p>`;
   },
   chroms() {
-    return `<svg viewBox="0 0 640 220" role="img">
-      <g font-family="Segoe UI, sans-serif" font-size="13" fill="#1c1915">
-        <text x="40" y="28">Possibility 1</text>
-        <rect x="40" y="50" width="16" height="70" fill="#1e4d3a"/>
-        <rect x="62" y="70" width="16" height="40" fill="#c4a15a"/>
-        <text x="40" y="140">these two go together</text>
-        <text x="250" y="28">Possibility 2</text>
-        <rect x="250" y="50" width="16" height="70" fill="#1e4d3a"/>
-        <rect class="slide-pair" x="272" y="60" width="16" height="54" fill="#8a3d2f"/>
-        <text x="250" y="140">a different partner</text>
-        <text x="430" y="90" fill="#5c564c">Different pairs line up</text>
-        <text x="430" y="112" fill="#5c564c">independently in meiosis.</text>
+    const bands = [
+      [24, "#1e4d3a", "height"],
+      [92, "#c4a15a", "seed colour"],
+      [160, "#8a3d2f", "flower"],
+      [228, "#5c564c", "pod"],
+      [296, "#1e4d3a", "more"]
+    ];
+    const segs = bands.map((b, i) => `<g class="rise d${i + 1}">
+      <rect x="${b[0]}" y="78" width="64" height="28" fill="${b[1]}"/>
+      <text x="${b[0] + 32}" y="68" text-anchor="middle" font-size="11" fill="#5c564c">${b[2]}</text>
+    </g>`).join("");
+    return `<svg viewBox="0 0 720 250" role="img">
+      <g font-family="Segoe UI, sans-serif" fill="#1c1915">
+        <text x="24" y="28" font-size="15" fill="#1e4d3a">One chromosome: the whole rod</text>
+        ${segs}
+        <text x="24" y="132" font-size="13">Many genes sit in a row on it.</text>
+        <line x1="56" y1="106" x2="56" y2="148" stroke="#8a3d2f" stroke-width="1.5"/>
+        <text x="64" y="162" font-size="13" fill="#8a3d2f">This one band is one gene.</text>
+        <text x="400" y="28" font-size="15" fill="#1e4d3a">A matching pair</text>
+        <rect x="400" y="58" width="64" height="22" fill="#1e4d3a"/>
+        <rect x="464" y="58" width="64" height="22" fill="#c4a15a"/>
+        <rect x="528" y="58" width="64" height="22" fill="#8a3d2f"/>
+        <text x="432" y="74" font-size="12" fill="#fff">T</text>
+        <rect x="400" y="96" width="64" height="22" fill="#1e4d3a"/>
+        <rect x="464" y="96" width="64" height="22" fill="#c4a15a"/>
+        <rect x="528" y="96" width="64" height="22" fill="#8a3d2f"/>
+        <text x="432" y="112" font-size="12" fill="#fff">t</text>
+        <text x="400" y="146" font-size="13">T and t are alleles:</text>
+        <text x="400" y="166" font-size="13">two versions of the same gene,</text>
+        <text x="400" y="186" font-size="13">at the same place on the pair.</text>
+        <text x="24" y="220" font-size="14" fill="#1e4d3a">A gene is one address. A chromosome is the whole rod of addresses.</text>
       </g>
     </svg>`;
   },
   link() {
-    return `<div class="cards">
-      <div class="card"><b>white and yellow</b><span>1.3% recombination. Very close.</span></div>
-      <div class="card"><b>white and miniature wing</b><span>37.2% recombination. Farther apart, same chromosome.</span></div>
-      <div class="card"><b>different chromosomes</b><span>Would shuffle toward 9:3:3:1.</span></div>
-    </div>`;
+    return `<svg viewBox="0 0 760 430" role="img">
+      <g font-family="Segoe UI, sans-serif" fill="#1c1915">
+        <text x="24" y="28" font-size="16" fill="#1e4d3a">One chromosome</text>
+        <rect x="36" y="92" width="688" height="28" rx="14" fill="#1e4d3a"/>
+        <circle cx="78" cy="106" r="13" fill="#e4b423" stroke="#1c1915" stroke-width="1.5"/>
+        <circle cx="108" cy="106" r="13" fill="#fffdf6" stroke="#1c1915" stroke-width="1.5"/>
+        <circle cx="684" cy="106" r="13" fill="#8a3d2f" stroke="#1c1915" stroke-width="1.5"/>
+        <text x="78" y="72" text-anchor="middle" font-size="13" fill="#8a6a12">yellow</text>
+        <text x="148" y="78" font-size="13">white</text>
+        <text x="684" y="72" text-anchor="middle" font-size="13" fill="#8a3d2f">miniature wing</text>
+        <path d="M78 128 v16 h30 v-16" fill="none" stroke="#8a3d2f" stroke-width="1.6"/>
+        <text x="93" y="162" text-anchor="middle" font-size="14" fill="#8a3d2f">1.3%</text>
+        <text x="93" y="180" text-anchor="middle" font-size="12" fill="#8a3d2f">very close</text>
+        <path d="M130 128 v34 h554 v-34" fill="none" stroke="#5c564c" stroke-width="1.4"/>
+        <text x="407" y="184" text-anchor="middle" font-size="16">37.2% recombination</text>
+        <text x="407" y="206" text-anchor="middle" font-size="13" fill="#5c564c">farther apart, same chromosome</text>
+        <text x="24" y="258" font-size="16" fill="#1e4d3a">Different chromosomes</text>
+        <rect x="36" y="292" width="210" height="22" rx="11" fill="#1e4d3a"/>
+        <circle cx="78" cy="303" r="9" fill="#e4b423" stroke="#1c1915"/>
+        <text x="100" y="308" font-size="13" fill="#fff">body colour</text>
+        <rect x="300" y="292" width="210" height="22" rx="11" fill="#5c564c"/>
+        <circle cx="342" cy="303" r="9" fill="#fffdf6" stroke="#1c1915"/>
+        <text x="360" y="308" font-size="13" fill="#fff">eye colour</text>
+        <text x="36" y="348" font-size="14">These two rods are free of each other.</text>
+        <text x="36" y="392" font-size="20" fill="#1e4d3a">They shuffle toward 9 : 3 : 3 : 1</text>
+      </g>
+    </svg>`;
   },
   sex() {
     return `<table class="grid-fig">
@@ -154,19 +195,39 @@ const DIAGRAMS = {
     <p class="why">The egg has no choice of sex chromosome. The sperm does.</p>`;
   },
   helix() {
-    return `<svg viewBox="0 0 640 200" role="img">
-      <g font-family="Segoe UI, sans-serif" font-size="16" fill="#1c1915">
-        ${[["A", "T"], ["T", "A"], ["G", "C"], ["C", "G"], ["A", "T"]].map((pair, i) => {
-          const y = 30 + i * 32;
+    const steps = [
+      ["DNA", "ATG GAG", "order of the letters"],
+      ["RNA", "AUG GAG", "U is written for T"],
+      ["amino acids", "Met - Glu", "three letters, one block"],
+      ["protein", "a folded chain", "the chain does a job"],
+      ["character", "what you can see", "the protein's job"]
+    ];
+    const boxes = steps.map((s, i) => {
+      const x = 16 + i * 148;
+      return `<g class="rise d${i + 1}">
+        <rect x="${x}" y="168" width="136" height="92" rx="8" fill="${i === 4 ? "#e7f0ea" : "#fffdf8"}" stroke="${i === 4 ? "#1e4d3a" : "#cfc6b8"}"/>
+        <text x="${x + 68}" y="190" text-anchor="middle" font-size="13" fill="#1e4d3a">${s[0]}</text>
+        <text x="${x + 68}" y="216" text-anchor="middle" font-size="15">${s[1]}</text>
+        <text x="${x + 68}" y="240" text-anchor="middle" font-size="11" fill="#5c564c">${s[2]}</text>
+      </g>`;
+    }).join("");
+    return `<svg viewBox="0 0 760 340" role="img">
+      <g font-family="Segoe UI, sans-serif" fill="#1c1915">
+        <text x="16" y="28" font-size="15" fill="#1e4d3a">The ladder only pairs. The order is the message.</text>
+        ${[["A", "T", "2"], ["G", "C", "3"]].map((pair, i) => {
+          const x = 24 + i * 180;
           return `<g class="rise d${i + 1}">
-            <text x="180" y="${y}" text-anchor="middle">${pair[0]}</text>
-            <line class="bond" style="animation-delay:${0.2 + i * 0.18}s" x1="200" y1="${y - 5}" x2="280" y2="${y - 5}" stroke="${pair[0] === "G" || pair[0] === "C" ? "#8a3d2f" : "#1e4d3a"}" stroke-width="${pair[0] === "G" || pair[0] === "C" ? 3 : 1.5}"/>
-            <text x="310" y="${y}" text-anchor="middle">${pair[1]}</text>
+            <text x="${x}" y="68" font-size="22">${pair[0]}</text>
+            <line x1="${x + 28}" y1="62" x2="${x + 78}" y2="62" stroke="${pair[2] === "3" ? "#8a3d2f" : "#1e4d3a"}" stroke-width="${pair[2] === "3" ? 3 : 1.5}"/>
+            <text x="${x + 88}" y="68" font-size="22">${pair[1]}</text>
+            <text x="${x + 130}" y="68" font-size="13" fill="#5c564c">${pair[2]} bonds</text>
           </g>`;
         }).join("")}
-        <text x="420" y="70" fill="#1e4d3a">A-T, two bonds</text>
-        <text x="420" y="98" fill="#8a3d2f">G-C, three bonds</text>
-        <text x="420" y="130" fill="#5c564c">rails run opposite ways</text>
+        <text x="16" y="112" font-size="14">Read the order in threes. Each three letters name one amino acid.</text>
+        <text x="16" y="136" font-size="14" fill="#5c564c">ATG is read as AUG. GAG names glutamic acid.</text>
+        ${boxes}
+        <text x="16" y="296" font-size="14">Change the middle letter of GAG to T, and the RNA says GUG.</text>
+        <text x="16" y="320" font-size="14" fill="#8a3d2f">Glutamic acid becomes valine. In haemoglobin, the red cell sickles.</text>
       </g>
     </svg>`;
   },
@@ -262,9 +323,37 @@ const DIAGRAMS = {
     </svg>`;
   },
   hw() {
-    return `<div class="widget" data-hw>
-      <label>Frequency of allele A, as a percent
-        <input data-p type="range" min="0" max="100" value="50">
+    const chips = Array.from({ length: 10 }, (_, i) => {
+      const allele = i < 4 ? "A" : "a";
+      const kind = i < 4 ? "bigA" : "smalla";
+      return `<span class="hw-chip ${kind}">${allele}</span>`;
+    }).join("");
+    return `<div class="hw-story">
+      <p class="hw-step">1. Count the ten copies</p>
+      <div class="hw-copies">${chips}</div>
+      <p>Four of these ten copies are A, so <b>p = 0.4</b>. The other six are a, so <b>q = 0.6</b>. Together, 0.4 + 0.6 = 1.</p>
+      <p class="hw-step">2. A child gets one copy from each parent</p>
+      <table class="hw-meet">
+        <tr><th></th><th>Second copy is A<br>0.4</th><th>Second copy is a<br>0.6</th></tr>
+        <tr>
+          <th>First copy is A<br>0.4</th>
+          <td class="dom"><b>AA</b><span>0.4 &times; 0.4 = 0.16</span></td>
+          <td class="het"><b>Aa</b><span>0.4 &times; 0.6 = 0.24</span></td>
+        </tr>
+        <tr>
+          <th>First copy is a<br>0.6</th>
+          <td class="het"><b>Aa</b><span>0.6 &times; 0.4 = 0.24</span></td>
+          <td class="rec"><b>aa</b><span>0.6 &times; 0.6 = 0.36</span></td>
+        </tr>
+      </table>
+      <p class="hw-step">3. Add the two shaded boxes. Both are Aa.</p>
+      <p>0.24 + 0.24 = <b>0.48</b>. That sum is <b>2pq</b>.</p>
+      <p class="hw-formula">AA 0.16 + Aa 0.48 + aa 0.36 = 1</p>
+      <p class="hw-formula">p&sup2; + 2pq + q&sup2; = 1</p>
+    </div>
+    <div class="widget" data-hw>
+      <label>Try another share of A, as a percent. The three kinds of people are worked out the same way.
+        <input data-p type="range" min="0" max="100" value="40">
       </label>
       <p class="result" data-out></p>
       <div class="stack-bar">
@@ -273,9 +362,9 @@ const DIAGRAMS = {
         <div class="seg-rec" data-seg="rec"></div>
       </div>
       <div class="legend">
-        <span><i class="seg-dom"></i>AA, p squared</span>
+        <span><i class="seg-dom"></i>AA, p&sup2;</span>
         <span><i class="seg-het"></i>Aa, 2pq</span>
-        <span><i class="seg-rec"></i>aa, q squared</span>
+        <span><i class="seg-rec"></i>aa, q&sup2;</span>
       </div>
     </div>`;
   },

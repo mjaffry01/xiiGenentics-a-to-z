@@ -14,42 +14,80 @@
     <p><a class="study-link" href="learn.html">Study one idea at a time</a></p>
   </header>
   <main>
+    <section class="home-onion" id="path">
+      <h2>One line, then the next</h2>
+      <p class="onion-help">Read down. Each line is forced by the line above it. Hover a line for the support. The picture is that same step. The link opens it in the study path.</p>
+      <div id="home-path"></div>
+      <p class="core" id="home-core"></p>
+    </section>
     <figure class="player">
       <video id="lecture" controls playsinline preload="metadata" src="../lecture/genetics-lecture.mp4">
         Your browser cannot play this video. The file is lecture/genetics-lecture.mp4.
       </video>
-      <figcaption>Sonia and Ryan, clear British English. About 17 minutes. Subtitles are on the picture.</figcaption>
+      <figcaption>Sonia and Ryan, clear British English. About 18 minutes. Each scene shows the action, then the voice explains it. Subtitles are on the picture.</figcaption>
     </figure>
     <h2>Jump to an idea</h2>
     <div class="chapters" id="chapters"></div>
   </main>
+  <script src="diagrams.js"></script>
+  <script src="chapter-times.js"></script>
   <script>
-    const chapters = [
-      [0, "Opening"],
-      [17, "A mango seed"],
-      [42, "Same family, not copies"],
-      [72, "The message is not paint"],
-      [107, "Two copies"],
-      [140, "One copy can hide the other"],
-      [176, "The quiet copy returns"],
-      [212, "The test cross"],
-      [252, "Two characters, and the percent"],
-      [295, "When neither copy simply wins"],
-      [353, "Chromosomes and linkage"],
-      [408, "Who decides the sex"],
-      [463, "Four letters"],
-      [520, "Three experiments"],
-      [572, "The ladder copies"],
-      [624, "Reading a protein"],
-      [705, "A chapter can stay shut"],
-      [763, "A changed letter"],
-      [836, "Count the crowd"],
-      [892, "Why the count changes"],
-      [950, "Deep time"]
+    const path = [
+      ["kind", "A mango seed grows a mango.", "It does not grow a neem tree. The young are the same kind as the parents. That passing of kind is heredity.", "same-kind"],
+      ["siblings", "The young are still not copies.", "Same kind, different details. A difference that can be passed on is variation.", "not-copies"],
+      ["punnett", "The information comes as two letters, and the letters split.", "One letter can hide the other. The hidden letter returns when the pair separates. Three look like the loud parent. One shows the quiet letter.", "returns"],
+      ["helix", "Those letters are a paired ladder of four bases.", "One side predicts the other, so the ladder can be copied. One side can also be read, three letters at a time, into a protein.", "ladder"],
+      ["hw", "In a crowd, what changes is how common each letter is.", "If nothing pushes, the fractions stay. Migration, chance, new letters, reshuffling, or more offspring move them.", "crowd"]
     ];
+    const homePath = document.getElementById("home-path");
+    path.forEach((row, n) => {
+      const block = document.createElement("div");
+      block.className = "home-ring";
+      const fig = document.createElement("figure");
+      fig.className = "diagram";
+      fig.innerHTML = DIAGRAMS[row[0]]();
+      const ring = document.createElement("div");
+      ring.className = "ring";
+      ring.tabIndex = 0;
+      const line = document.createElement("p");
+      line.className = "ring-line";
+      const num = document.createElement("span");
+      num.className = "ring-n";
+      num.textContent = String(n + 1);
+      const words = document.createElement("span");
+      words.textContent = row[1];
+      line.appendChild(num);
+      line.appendChild(words);
+      const support = document.createElement("p");
+      support.className = "support";
+      support.textContent = row[2];
+      const link = document.createElement("a");
+      link.className = "home-jump";
+      link.href = "learn.html#" + row[3];
+      link.textContent = "Open this step";
+      ring.appendChild(line);
+      ring.appendChild(support);
+      ring.appendChild(link);
+      ring.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        ring.classList.toggle("open");
+      });
+      block.appendChild(fig);
+      block.appendChild(ring);
+      homePath.appendChild(block);
+    });
+    const core = document.getElementById("home-core");
+    core.textContent = "A mango seed grows a mango because it carries a copied ladder, in pairs, usually unchanged, and sometimes changed in frequency across a crowd and across deep time.";
+    const coreLink = document.createElement("a");
+    coreLink.href = "learn.html#long-story";
+    coreLink.textContent = " Open the last step.";
+    core.appendChild(coreLink);
+
     const video = document.getElementById("lecture");
     const box = document.getElementById("chapters");
-    chapters.forEach(([seconds, label]) => {
+    CHAPTERS.forEach(([seconds, label, id]) => {
+      const row = document.createElement("div");
+      row.className = "chapter-row";
       const button = document.createElement("button");
       button.type = "button";
       const min = Math.floor(seconds / 60);
@@ -59,7 +97,13 @@
         video.currentTime = seconds;
         video.play();
       });
-      box.appendChild(button);
+      const link = document.createElement("a");
+      link.className = "home-jump";
+      link.href = "learn.html#" + id;
+      link.textContent = "Study";
+      row.appendChild(button);
+      row.appendChild(link);
+      box.appendChild(row);
     });
   </script>
 </body>

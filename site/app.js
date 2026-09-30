@@ -50,7 +50,7 @@
         segs.het.style.width = (het * 100) + "%";
         segs.rec.style.width = (bb * 100) + "%";
         const fmt = (n) => n.toFixed(2);
-        out.textContent = "p = " + fmt(p) + ", q = " + fmt(q) + ". AA " + fmt(aa) + ", Aa " + fmt(het) + ", aa " + fmt(bb) + ".";
+        out.textContent = "A is " + Math.round(p * 100) + "% of the copies, so a is " + Math.round(q * 100) + "%. Then AA is " + fmt(aa) + ", Aa is " + fmt(het) + ", and aa is " + fmt(bb) + ".";
       };
       range.addEventListener("input", draw);
       draw();
@@ -87,6 +87,58 @@
       btn.addEventListener("click", () => show(i, true));
       ladder.appendChild(btn);
     });
+  }
+
+  function renderOnion(onion, at) {
+    const wrap = document.createElement("div");
+    wrap.className = "onion";
+    const note = document.createElement("p");
+    note.className = "onion-help";
+    note.textContent = "Each line adds one step. Hover a line, or tap it, for the support. The last line is the idea those steps force.";
+    wrap.appendChild(note);
+    onion.layers.forEach((pair, n) => {
+      const ring = document.createElement("div");
+      ring.className = "ring";
+      ring.tabIndex = 0;
+      const line = document.createElement("p");
+      line.className = "ring-line";
+      const num = document.createElement("span");
+      num.className = "ring-n";
+      num.textContent = String(n + 1);
+      const words = document.createElement("span");
+      words.textContent = pair[0];
+      line.appendChild(num);
+      line.appendChild(words);
+      const support = document.createElement("p");
+      support.className = "support";
+      support.textContent = pair[1];
+      ring.appendChild(line);
+      ring.appendChild(support);
+      ring.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        ring.classList.toggle("open");
+      });
+      wrap.appendChild(ring);
+    });
+    const core = document.createElement("p");
+    core.className = "core";
+    core.textContent = onion.core;
+    wrap.appendChild(core);
+    const jumps = document.createElement("nav");
+    jumps.className = "jumps";
+    jumps.setAttribute("aria-label", "Connected ideas");
+    const addJump = (id, label) => {
+      if (!id) return;
+      const link = document.createElement("a");
+      link.href = "#" + id;
+      link.textContent = label;
+      jumps.appendChild(link);
+    };
+    if (LESSONS[at - 1]) addJump(LESSONS[at - 1].id, "Previous: " + LESSONS[at - 1].title);
+    if (LESSONS[at + 1]) addJump(LESSONS[at + 1].id, "Next: " + LESSONS[at + 1].title);
+    (onion.links || []).forEach((pair) => addJump(pair[0], pair[1]));
+    wrap.appendChild(jumps);
+    return wrap;
   }
 
   function show(i, focusHeading) {
@@ -152,14 +204,19 @@
     figure.appendChild(cap);
     lessonRoot.appendChild(figure);
 
-    const prose = document.createElement("div");
-    prose.className = "prose";
-    lesson.plain.forEach((text) => {
-      const p = document.createElement("p");
-      p.textContent = text;
-      prose.appendChild(p);
-    });
-    lessonRoot.appendChild(prose);
+    const onion = (typeof ONIONS !== "undefined") ? ONIONS[lesson.id] : null;
+    if (onion) {
+      lessonRoot.appendChild(renderOnion(onion, index));
+    } else {
+      const prose = document.createElement("div");
+      prose.className = "prose";
+      lesson.plain.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        prose.appendChild(p);
+      });
+      lessonRoot.appendChild(prose);
+    }
 
     const exam = (typeof EXAMS !== "undefined") ? EXAMS[lesson.id] : null;
     const workData = lesson.work || (exam && exam.work);
@@ -234,7 +291,7 @@
       const block = document.createElement("section");
       block.className = "entrance";
       const heading = document.createElement("h3");
-      heading.textContent = "Medical entrance";
+      heading.textContent = "NEET, AIIMS and CPMT";
       block.appendChild(heading);
       (exam.notes || []).forEach((text) => {
         const p = document.createElement("p");

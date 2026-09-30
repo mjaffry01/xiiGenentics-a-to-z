@@ -9,6 +9,10 @@ lecture/_cal.*
 lecture/0*.mp4
 lecture/1*.mp4
 lecture/2*.mp4
+lecture/mov-*/
+lecture/mov-*.mp4
+lecture/mov-list.txt
+lecture/*.shifted.srt
 
 # Full NCERT chapter PDFs stay on this computer. They are the copyrighted textbook.
 chapters/**/*.pdf

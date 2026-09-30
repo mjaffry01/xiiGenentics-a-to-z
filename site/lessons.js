@@ -318,10 +318,10 @@ const LESSONS = [
     stage: "Chromosomes",
     band: "Class 12",
     title: "The copies ride on chromosomes",
-    idea: "Genes sit on chromosomes, and chromosomes separate in the same pattern as genes.",
-    rests: "You already know that alleles separate, and that independent genes shuffle.",
-    words: ["chromosome", "chromosomal theory"],
-    caption: "Two pairs can line up in two ways. That is independent assortment, seen as chromosomes.",
+    idea: "A gene is one address. A chromosome is the whole rod of addresses.",
+    rests: "You already know that a gene is one piece of information, carried as two letters.",
+    words: ["gene", "chromosome", "allele"],
+    caption: "One chromosome holds many genes. T and t are two versions of one of those genes.",
     diagram: "chroms",
     plain: [
       "Mendel published in 1865. The work sat quietly until 1900, when de Vries, Correns, and von Tschermak reached the same counts. By then microscopes could show chromosomes doubling and separating in cell division.",
@@ -346,7 +346,7 @@ const LESSONS = [
     idea: "Genes on the same chromosome do not shuffle freely, unless a break-and-rejoin separates them.",
     rests: "You already know that independent assortment is what separate chromosome pairs do.",
     words: ["linkage", "recombination"],
-    caption: "Close neighbours rarely split. Distant genes on the same chromosome split more often.",
+    caption: "Yellow and white are 1.3 apart. White and miniature wing are 37.2 apart on that same chromosome.",
     diagram: "link",
     plain: [
       "Morgan crossed fruit flies for two genes that both sat on the X chromosome. The next generation was not in 9:3:3:1. The combinations that came in from the parents were much more common than the new ones.",
@@ -429,10 +429,10 @@ const LESSONS = [
     stage: "Molecule",
     band: "Class 12",
     title: "The message is four letters",
-    idea: "A gene is a stretch of DNA: a ladder of A, T, G, and C.",
+    idea: "A, T, G, and C do not look like a character. Their order names a protein, and the protein makes the character.",
     rests: "You already know that a gene is information carried on a chromosome.",
-    words: ["DNA", "base pair", "nucleotide"],
-    caption: "A pairs with T. G pairs with C. Knowing one side tells you the other side.",
+    words: ["DNA", "base pair", "codon"],
+    caption: "Three letters name one amino acid. The chain of amino acids is a protein. The protein's job is the character.",
     diagram: "helix",
     plain: [
       "DNA is a long chain of nucleotides. Each nucleotide is a sugar, a phosphate, and a base. The bases are adenine, thymine, guanine, and cytosine. Adenine pairs with thymine. Guanine pairs with cytosine. The two rails of the ladder run in opposite directions, and the ladder twists to the right.",
@@ -660,16 +660,16 @@ const LESSONS = [
     stage: "Crowds",
     band: "Entrance",
     title: "Count the copies in a whole crowd",
-    idea: "At this level, evolution is a change in how common an allele is.",
-    rests: "You already know that each person carries alleles. Now leave the person, and count the alleles in the population.",
+    idea: "From the share of each allele, work out the share of AA, Aa, and aa.",
+    rests: "You already know that one body carries two alleles. Here you count every copy in the crowd.",
     words: ["allele frequency", "gene pool", "Hardy-Weinberg"],
-    caption: "Move p, the fraction of allele A. If nothing pushes, the three genotypes stay in these fractions.",
+    caption: "The bar shows the same sum. Green is AA, pale is Aa, brown is aa.",
     diagram: "hw",
     plain: [
       "Take one gene with two alleles, A and a. Let p be the fraction of all the copies that are A. Let q be the fraction that are a. Then p + q = 1.",
       "If nothing pushes the population, those fractions stay the same generation after generation. The fraction of people who are AA is p squared. The fraction who are aa is q squared. The fraction who are Aa is 2pq. The three fractions add to 1. This quiet baseline is the Hardy-Weinberg equilibrium. Evolution, in this chapter, is a departure from it."
     ],
-    precision: "The gene pool is every allele at that locus in the population. The equation p squared + 2pq + q squared = 1 is the expansion of (p + q) squared. It is the baseline, not a description of every real population. If p = 0.6, then q = 0.4, AA is 0.36, Aa is 0.48, and aa is 0.16. The chapter states the equation and then does not drill it in the exercises. Entrance questions do. Measure a real population, compare it with these expected fractions, and the direction of the difference is the sign of evolutionary change.",
+    precision: "The gene pool is every allele at that locus in the population. The equation p squared + 2pq + q squared = 1 is the expansion of (p + q) squared. Because p + q = 1, the square is also 1. If p = 0.4, then q = 0.6, AA is 0.16, Aa is 0.48, and aa is 0.36. If p = 0.1, AA is 0.01. The chapter states the equation and then does not drill it in the exercises. Entrance questions do. Measure a real population, compare it with these expected fractions, and the direction of the difference is the sign of evolutionary change.",
     check: {
       prompt: "If p = 0.5 and q = 0.5, the heterozygote fraction 2pq is:",
       choices: [
