@@ -463,10 +463,23 @@ def assemble(scene_ids):
             "-af", f"adelay={int(LEAD * 1000)}:all=1,apad,atrim=0:{length:.6f}",
             "-ar", "44100", "-c:a", "pcm_s16le", voice,
         ])
+        # One short file per scene, so a lesson page shows only its own timeline.
+        os.makedirs(os.path.join(ROOT, "scenes"), exist_ok=True)
+        run([
+            FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", picture, "-i", voice,
+            "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-ar", "44100", "-b:a", "128k",
+            "-movflags", "+faststart", "scenes/" + scene_id + ".mp4",
+        ])
+        run([
+            FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", picture, "-i", voice,
+            "-map", "0:v", "-map", "1:a", "-c:v", "libvpx-vp9", "-crf", "38", "-b:v", "0",
+            "-deadline", "realtime", "-cpu-used", "8", "-row-mt", "1", "-g", "250", "-c:a", "libopus", "-b:a", "96k",
+            "scenes/" + scene_id + ".webm",
+        ])
         video_list.append("file '" + picture + "'")
         audio_list.append("file '" + voice + "'")
         label, lesson = LABELS[scene_id]
-        chapters.append((round(cursor), label, lesson))
+        chapters.append((round(cursor), label, lesson, scene_id))
         cursor += length
     for name, rows in (("_v-list.txt", video_list), ("_a-list.txt", audio_list)):
         with open(os.path.join(ROOT, name), "w", encoding="utf-8") as handle:
@@ -492,8 +505,8 @@ def assemble(scene_ids):
     js = os.path.join(ROOT, "..", "site", "chapter-times.js")
     with open(js, "w", encoding="utf-8") as handle:
         handle.write("const CHAPTERS = [\n")
-        for seconds, label, lesson in chapters:
-            handle.write(f'  [{seconds}, "{label}", "{lesson}"],\n')
+        for seconds, label, lesson, scene_id in chapters:
+            handle.write(f'  [{seconds}, "{label}", "{lesson}", "{scene_id}"],\n')
         handle.write("];\n")
     print("DONE", final, "seconds", round(cursor))
 

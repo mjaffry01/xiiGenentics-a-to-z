@@ -11,13 +11,12 @@
     almost: "change",
   };
 
-  // Returns [start, end, label] in seconds for a lesson's part of the lecture.
+  // Returns [scene file, label] for the short video that teaches a lesson.
   function sceneFor(lessonId) {
     const id = SCENE_FOR[lessonId] || lessonId;
-    const at = CHAPTERS.findIndex((row) => row[2] === id);
+    const at = CHAPTERS.findLastIndex((row) => row[2] === id);
     if (at < 0) return null;
-    const next = CHAPTERS[at + 1];
-    return [CHAPTERS[at][0], next ? next[0] : null, CHAPTERS[at][1]];
+    return [CHAPTERS[at][3], CHAPTERS[at][1]];
   }
 
   const lessonRoot = document.getElementById("lesson");
@@ -228,23 +227,21 @@
 
     const scene = (typeof CHAPTERS !== "undefined") ? sceneFor(lesson.id) : null;
     if (scene) {
-      const [from, to, label] = scene;
+      const [file, label] = scene;
       const player = document.createElement("figure");
       player.className = "player lesson-player";
       const video = document.createElement("video");
       video.controls = true;
       video.playsInline = true;
       video.preload = "metadata";
-      // Start at this idea and keep playing, so the lecture never stops on its own.
       [["mp4", 'video/mp4; codecs="avc1.64001f, mp4a.40.2"'], ["webm", 'video/webm; codecs="vp9, opus"']].forEach(([ext, type]) => {
         const source = document.createElement("source");
-        source.src = "../lecture/genetics-lecture." + ext + "?v=4#t=" + from;
+        source.src = "../lecture/scenes/" + file + "." + ext + "?v=5";
         source.type = type;
         video.appendChild(source);
       });
       const vcap = document.createElement("figcaption");
-      const clock = (t) => Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0");
-      vcap.textContent = "This idea is " + label + ", " + clock(from) + (to ? " to " + clock(to) : " to the end") + " on the timeline. The video starts there and keeps playing. ";
+      vcap.textContent = "Video for this idea: " + label + ". ";
       const whole = document.createElement("a");
       whole.href = "index.html";
       whole.textContent = "Watch the whole lecture.";
