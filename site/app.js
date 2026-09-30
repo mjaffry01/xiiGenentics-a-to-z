@@ -235,25 +235,16 @@
       video.controls = true;
       video.playsInline = true;
       video.preload = "metadata";
-      const range = "#t=" + from + (to ? "," + to : "");
+      // Start at this idea and keep playing, so the lecture never stops on its own.
       [["mp4", 'video/mp4; codecs="avc1.64001f, mp4a.40.2"'], ["webm", 'video/webm; codecs="vp9, opus"']].forEach(([ext, type]) => {
         const source = document.createElement("source");
-        source.src = "../lecture/genetics-lecture." + ext + "?v=3" + range;
+        source.src = "../lecture/genetics-lecture." + ext + "?v=4#t=" + from;
         source.type = type;
         video.appendChild(source);
       });
-      video.addEventListener("timeupdate", () => {
-        if (to && video.currentTime >= to) {
-          video.pause();
-          video.currentTime = from;
-        }
-      });
-      video.addEventListener("play", () => {
-        if (video.currentTime < from || (to && video.currentTime >= to)) video.currentTime = from;
-      });
       const vcap = document.createElement("figcaption");
       const clock = (t) => Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0");
-      vcap.textContent = "Watch this idea in the lecture: " + label + ", " + clock(from) + (to ? " to " + clock(to) : "") + ". ";
+      vcap.textContent = "This idea is " + label + ", " + clock(from) + (to ? " to " + clock(to) : " to the end") + " on the timeline. The video starts there and keeps playing. ";
       const whole = document.createElement("a");
       whole.href = "index.html";
       whole.textContent = "Watch the whole lecture.";

@@ -415,34 +415,90 @@ def shift_srt(src, dst, lead):
         handle.write("\n".join(out) + "\n")
 
 
-def build():
+LABELS = {
+    "01-open": ("Opening", "same-kind"),
+    "02-seed": ("A mango seed", "same-kind"),
+    "03-vary": ("Same family, not copies", "not-copies"),
+    "04-gene": ("The message is not paint", "message"),
+    "05-copies": ("Two copies", "two-copies"),
+    "06-loud": ("The cross", "louder"),
+    "07-return": ("The quiet copy returns", "returns"),
+    "08-test": ("The test cross", "test"),
+    "09-two": ("Two characters", "sixteenths"),
+    "10-except": ("When neither copy simply wins", "not-louder"),
+    "11-chrom": ("Crossing over", "linked"),
+    "12-sex": ("Who decides the sex", "sex"),
+    "13-dna": ("Four letters", "ladder"),
+    "14-proof": ("Three experiments", "proof"),
+    "15-copy": ("The ladder copies", "copy"),
+    "16-read": ("Reading a protein", "read"),
+    "17-lac": ("A chapter can stay shut", "shut"),
+    "18-change": ("A changed letter", "change"),
+    "19-crowd": ("Count the crowd", "crowd"),
+    "20-push": ("Why the count changes", "pushes"),
+    "21-time": ("Deep time", "long-story"),
+}
+
+
+def assemble(scene_ids):
+    """Join the scenes with picture and voice laid end to end separately.
+
+    Joining finished clips drifts, and loses the voice delay, so the voice ran
+    ahead of the picture. Here each voice is padded to exactly its scene length.
+    """
     chapters = []
     cursor = 0.0
-    labels = {
-        "01-open": ("Opening", "same-kind"),
-        "02-seed": ("A mango seed", "same-kind"),
-        "03-vary": ("Same family, not copies", "not-copies"),
-        "04-gene": ("The message is not paint", "message"),
-        "05-copies": ("Two copies", "two-copies"),
-        "06-loud": ("The cross", "louder"),
-        "07-return": ("The quiet copy returns", "returns"),
-        "08-test": ("The test cross", "test"),
-        "09-two": ("Two characters", "sixteenths"),
-        "10-except": ("When neither copy simply wins", "not-louder"),
-        "11-chrom": ("Crossing over", "chroms" and "linked"),
-        "12-sex": ("Who decides the sex", "sex"),
-        "13-dna": ("Four letters", "ladder"),
-        "14-proof": ("Three experiments", "proof"),
-        "15-copy": ("The ladder copies", "copy"),
-        "16-read": ("Reading a protein", "read"),
-        "17-lac": ("A chapter can stay shut", "shut"),
-        "18-change": ("A changed letter", "change"),
-        "19-crowd": ("Count the crowd", "crowd"),
-        "20-push": ("Why the count changes", "pushes"),
-        "21-time": ("Deep time", "long-story"),
-    }
-    # fix the accidental tuple for chroms
-    labels["11-chrom"] = ("Crossing over", "linked")
+    video_list = []
+    audio_list = []
+    for scene_id in scene_ids:
+        frame_dir = os.path.join(ROOT, "mov-" + scene_id)
+        frames = len([name for name in os.listdir(frame_dir) if name.endswith(".jpg")])
+        length = frames / FPS
+        clip = "mov-" + scene_id + ".mp4"
+        picture = "_v-" + scene_id + ".mp4"
+        voice = "_a-" + scene_id + ".wav"
+        run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", clip, "-an", "-c:v", "copy", picture])
+        run([
+            FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", scene_id + ".wav",
+            "-af", f"adelay={int(LEAD * 1000)}:all=1,apad,atrim=0:{length:.6f}",
+            "-ar", "44100", "-c:a", "pcm_s16le", voice,
+        ])
+        video_list.append("file '" + picture + "'")
+        audio_list.append("file '" + voice + "'")
+        label, lesson = LABELS[scene_id]
+        chapters.append((round(cursor), label, lesson))
+        cursor += length
+    for name, rows in (("_v-list.txt", video_list), ("_a-list.txt", audio_list)):
+        with open(os.path.join(ROOT, name), "w", encoding="utf-8") as handle:
+            handle.write("\n".join(rows) + "\n")
+    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "_v-list.txt", "-c", "copy", "_v-all.mp4"])
+    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "_a-list.txt", "-c", "copy", "_a-all.wav"])
+    final = os.path.join(ROOT, "genetics-lecture.mp4")
+    run([
+        FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", "_v-all.mp4", "-i", "_a-all.wav",
+        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-ar", "44100", "-b:a", "160k",
+        "-movflags", "+faststart", final,
+    ])
+    # Some browsers and editor previews cannot play H.264, so the site also offers WebM.
+    run([
+        FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", "_v-all.mp4", "-i", "_a-all.wav",
+        "-map", "0:v", "-map", "1:a", "-c:v", "libvpx-vp9", "-crf", "38", "-b:v", "0",
+        "-deadline", "realtime", "-cpu-used", "8", "-row-mt", "1", "-g", "250", "-c:a", "libopus", "-b:a", "96k",
+        os.path.join(ROOT, "genetics-lecture.webm"),
+    ])
+    for name in os.listdir(ROOT):
+        if name.startswith(("_v-", "_a-")):
+            os.remove(os.path.join(ROOT, name))
+    js = os.path.join(ROOT, "..", "site", "chapter-times.js")
+    with open(js, "w", encoding="utf-8") as handle:
+        handle.write("const CHAPTERS = [\n")
+        for seconds, label, lesson in chapters:
+            handle.write(f'  [{seconds}, "{label}", "{lesson}"],\n')
+        handle.write("];\n")
+    print("DONE", final, "seconds", round(cursor))
+
+
+def build():
     clips = []
     style = "FontName=Segoe UI,FontSize=22,PrimaryColour=&H001C1915,OutlineColour=&H00F6F3EC,BorderStyle=3,Outline=3,Alignment=2,MarginV=28"
     for scene in B.SCENES:
@@ -465,35 +521,16 @@ def build():
         run([
             FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
             "-framerate", str(FPS), "-i", os.path.join(frame_dir, "%04d.jpg"),
-            "-itsoffset", str(LEAD), "-i", wav,
+            "-i", wav,
             "-vf", f"subtitles={scene['id']}.shifted.srt:force_style='{style}'",
+            "-af", f"adelay={int(LEAD * 1000)}:all=1",
             "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "veryfast", "-crf", "22",
             "-c:a", "aac", "-ar", "44100", "-b:a", "160k",
             "-shortest", clip,
         ])
-        dur = B.ffprobe_duration(clip)
-        label, lesson = labels[scene["id"]]
-        chapters.append((round(cursor), label, lesson))
-        cursor += dur
-        clips.append(clip)
-        print(f"  start was previous, clip {dur:.1f}s", flush=True)
-    list_path = os.path.join(ROOT, "mov-list.txt")
-    with open(list_path, "w", encoding="utf-8") as handle:
-        for clip in clips:
-            handle.write("file '" + os.path.basename(clip) + "'\n")
-    final = os.path.join(ROOT, "genetics-lecture.mp4")
-    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "mov-list.txt", "-c", "copy", "-movflags", "+faststart", final])
-    # Some browsers and editor previews cannot play H.264, so the site also offers WebM.
-    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", final, "-c:v", "libvpx-vp9", "-crf", "38", "-b:v", "0",
-         "-deadline", "realtime", "-cpu-used", "8", "-row-mt", "1", "-g", "250", "-c:a", "libopus", "-b:a", "96k",
-         os.path.join(ROOT, "genetics-lecture.webm")])
-    js = os.path.join(ROOT, "..", "site", "chapter-times.js")
-    with open(js, "w", encoding="utf-8") as handle:
-        handle.write("const CHAPTERS = [\n")
-        for seconds, label, lesson in chapters:
-            handle.write(f'  [{seconds}, "{label}", "{lesson}"],\n')
-        handle.write("];\n")
-    print("DONE", final, "seconds", round(cursor))
+        clips.append(scene["id"])
+        print("  clip done", flush=True)
+    assemble(clips)
 
 
 if __name__ == "__main__":
