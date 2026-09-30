@@ -823,7 +823,7 @@ async def build():
         for clip in clips:
             handle.write("file '" + os.path.basename(clip).replace("'", "'\\''") + "'\n")
     final = os.path.join(ROOT, "genetics-lecture.mp4")
-    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy", final])
+    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy", "-movflags", "+faststart", final])
     print(f"DONE {final}")
     print(f"overall {total_words} words, {total_seconds/60:.1f} min, {total_words / (total_seconds/60):.0f} wpm")
 

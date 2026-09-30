@@ -214,7 +214,7 @@
       video.controls = true;
       video.playsInline = true;
       video.preload = "metadata";
-      video.src = "../lecture/genetics-lecture.mp4#t=" + from + (to ? "," + to : "");
+      video.src = "../lecture/genetics-lecture.mp4?v=2#t=" + from + (to ? "," + to : "");
       video.addEventListener("timeupdate", () => {
         if (to && video.currentTime >= to) {
           video.pause();

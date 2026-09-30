@@ -482,7 +482,7 @@ def build():
         for clip in clips:
             handle.write("file '" + os.path.basename(clip) + "'\n")
     final = os.path.join(ROOT, "genetics-lecture.mp4")
-    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "mov-list.txt", "-c", "copy", final])
+    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "mov-list.txt", "-c", "copy", "-movflags", "+faststart", final])
     js = os.path.join(ROOT, "..", "site", "chapter-times.js")
     with open(js, "w", encoding="utf-8") as handle:
         handle.write("const CHAPTERS = [\n")
