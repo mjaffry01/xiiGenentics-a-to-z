@@ -146,6 +146,7 @@
     const lesson = LESSONS[index];
     history.replaceState(null, "", "#" + lesson.id);
 
+    lessonRoot.querySelectorAll("video").forEach((video) => video.pause());
     lessonRoot.replaceChildren();
 
     const stages = [];
@@ -203,6 +204,37 @@
     cap.textContent = lesson.caption;
     figure.appendChild(cap);
     lessonRoot.appendChild(figure);
+
+    const scene = (typeof sceneFor === "function") ? sceneFor(lesson.id) : null;
+    if (scene) {
+      const [from, to, label] = scene;
+      const player = document.createElement("figure");
+      player.className = "player lesson-player";
+      const video = document.createElement("video");
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.src = "../lecture/genetics-lecture.mp4#t=" + from + (to ? "," + to : "");
+      video.addEventListener("timeupdate", () => {
+        if (to && video.currentTime >= to) {
+          video.pause();
+          video.currentTime = from;
+        }
+      });
+      video.addEventListener("play", () => {
+        if (video.currentTime < from || (to && video.currentTime >= to)) video.currentTime = from;
+      });
+      const vcap = document.createElement("figcaption");
+      const clock = (t) => Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0");
+      vcap.textContent = "Watch this idea in the lecture: " + label + ", " + clock(from) + (to ? " to " + clock(to) : "") + ". ";
+      const whole = document.createElement("a");
+      whole.href = "index.html";
+      whole.textContent = "Watch the whole lecture.";
+      vcap.appendChild(whole);
+      player.appendChild(video);
+      player.appendChild(vcap);
+      lessonRoot.appendChild(player);
+    }
 
     const onion = (typeof ONIONS !== "undefined") ? ONIONS[lesson.id] : null;
     if (onion) {
