@@ -21,24 +21,3 @@ const CHAPTERS = [
   [968, "Why the count changes", "pushes"],
   [1031, "Deep time", "long-story"],
 ];
-
-// Lessons without their own scene play the scene that covers them.
-const SCENE_FOR = {
-  back: "test",
-  "two-traits": "sixteenths",
-  "many-or-one": "not-louder",
-  chromosomes: "linked",
-  "map-genes": "linked",
-  pedigree: "shut",
-  extra: "change",
-  almost: "change",
-};
-
-// Returns [start, end, label] in seconds for a lesson's part of the lecture.
-function sceneFor(lessonId) {
-  const id = SCENE_FOR[lessonId] || lessonId;
-  const at = CHAPTERS.findIndex((row) => row[2] === id);
-  if (at < 0) return null;
-  const next = CHAPTERS[at + 1];
-  return [CHAPTERS[at][0], next ? next[0] : null, CHAPTERS[at][1]];
-}

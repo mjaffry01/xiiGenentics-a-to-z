@@ -1,4 +1,25 @@
 (function () {
+  // Lessons without their own scene play the scene that covers them.
+  const SCENE_FOR = {
+    back: "test",
+    "two-traits": "sixteenths",
+    "many-or-one": "not-louder",
+    chromosomes: "linked",
+    "map-genes": "linked",
+    pedigree: "shut",
+    extra: "change",
+    almost: "change",
+  };
+
+  // Returns [start, end, label] in seconds for a lesson's part of the lecture.
+  function sceneFor(lessonId) {
+    const id = SCENE_FOR[lessonId] || lessonId;
+    const at = CHAPTERS.findIndex((row) => row[2] === id);
+    if (at < 0) return null;
+    const next = CHAPTERS[at + 1];
+    return [CHAPTERS[at][0], next ? next[0] : null, CHAPTERS[at][1]];
+  }
+
   const lessonRoot = document.getElementById("lesson");
   const ladder = document.getElementById("ladder");
   const prevBtn = document.getElementById("prev");
@@ -205,7 +226,7 @@
     figure.appendChild(cap);
     lessonRoot.appendChild(figure);
 
-    const scene = (typeof sceneFor === "function") ? sceneFor(lesson.id) : null;
+    const scene = (typeof CHAPTERS !== "undefined") ? sceneFor(lesson.id) : null;
     if (scene) {
       const [from, to, label] = scene;
       const player = document.createElement("figure");
@@ -214,7 +235,13 @@
       video.controls = true;
       video.playsInline = true;
       video.preload = "metadata";
-      video.src = "../lecture/genetics-lecture.mp4?v=2#t=" + from + (to ? "," + to : "");
+      const range = "#t=" + from + (to ? "," + to : "");
+      [["mp4", 'video/mp4; codecs="avc1.64001f, mp4a.40.2"'], ["webm", 'video/webm; codecs="vp9, opus"']].forEach(([ext, type]) => {
+        const source = document.createElement("source");
+        source.src = "../lecture/genetics-lecture." + ext + "?v=2" + range;
+        source.type = type;
+        video.appendChild(source);
+      });
       video.addEventListener("timeupdate", () => {
         if (to && video.currentTime >= to) {
           video.pause();

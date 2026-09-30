@@ -483,6 +483,10 @@ def build():
             handle.write("file '" + os.path.basename(clip) + "'\n")
     final = os.path.join(ROOT, "genetics-lecture.mp4")
     run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", "mov-list.txt", "-c", "copy", "-movflags", "+faststart", final])
+    # Some browsers and editor previews cannot play H.264, so the site also offers WebM.
+    run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y", "-i", final, "-c:v", "libvpx-vp9", "-crf", "38", "-b:v", "0",
+         "-deadline", "realtime", "-cpu-used", "8", "-row-mt", "1", "-g", "250", "-c:a", "libopus", "-b:a", "96k",
+         os.path.join(ROOT, "genetics-lecture.webm")])
     js = os.path.join(ROOT, "..", "site", "chapter-times.js")
     with open(js, "w", encoding="utf-8") as handle:
         handle.write("const CHAPTERS = [\n")
