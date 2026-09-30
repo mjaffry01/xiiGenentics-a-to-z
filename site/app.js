@@ -238,7 +238,7 @@
       const range = "#t=" + from + (to ? "," + to : "");
       [["mp4", 'video/mp4; codecs="avc1.64001f, mp4a.40.2"'], ["webm", 'video/webm; codecs="vp9, opus"']].forEach(([ext, type]) => {
         const source = document.createElement("source");
-        source.src = "../lecture/genetics-lecture." + ext + "?v=2" + range;
+        source.src = "../lecture/genetics-lecture." + ext + "?v=3" + range;
         source.type = type;
         video.appendChild(source);
       });
