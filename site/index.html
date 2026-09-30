@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Genetics lecture</title>
-  <link rel="stylesheet" href="styles.css?v=5">
+  <meta name="description" content="A spoken Class 12 genetics lecture with moving diagrams, then every idea one step at a time.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Genetics lecture">
+  <meta property="og:description" content="A spoken Class 12 genetics lecture with moving diagrams, then every idea one step at a time.">
+  <meta property="og:url" content="https://mjaffry01.github.io/xiiGenentics-a-to-z/site/index.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body class="home">
   <header class="home-head">
@@ -12,6 +18,7 @@
     <h1>Genetics</h1>
     <p class="lede">A spoken lecture at 160 words a minute, with the diagrams moving as the idea is said. A female voice and a male voice take turns. Then the same path can be studied one idea at a time.</p>
     <p><a class="study-link" href="learn.html">Study one idea at a time</a></p>
+    <div id="share-home"></div>
   </header>
   <main>
     <section class="home-onion" id="path">
@@ -22,8 +29,8 @@
     </section>
     <figure class="player">
       <video id="lecture" controls playsinline preload="metadata">
-        <source src="../lecture/genetics-lecture.mp4?v=5" type='video/mp4; codecs="avc1.64001f, mp4a.40.2"'>
-        <source src="../lecture/genetics-lecture.webm?v=5" type='video/webm; codecs="vp9, opus"'>
+        <source src="../lecture/genetics-lecture.mp4?v=6" type='video/mp4; codecs="avc1.64001f, mp4a.40.2"'>
+        <source src="../lecture/genetics-lecture.webm?v=6" type='video/webm; codecs="vp9, opus"'>
         Your browser cannot play this video. The file is lecture/genetics-lecture.mp4.
       </video>
       <figcaption>Sonia and Ryan, clear British English. About 18 minutes. Each scene shows the action, then the voice explains it. Subtitles are on the picture.</figcaption>
@@ -31,9 +38,11 @@
     <h2>Jump to an idea</h2>
     <div class="chapters" id="chapters"></div>
   </main>
-  <script src="diagrams.js?v=5"></script>
-  <script src="chapter-times.js?v=5"></script>
+  <script src="diagrams.js?v=6"></script>
+  <script src="chapter-times.js?v=6"></script>
+  <script src="share.js?v=6"></script>
   <script>
+    document.getElementById("share-home").replaceWith(shareBar("index.html", "Genetics for Class 12, a spoken lecture with moving diagrams."));
     const path = [
       ["kind", "A mango seed grows a mango.", "It does not grow a neem tree. The young are the same kind as the parents. That passing of kind is heredity.", "same-kind"],
       ["siblings", "The young are still not copies.", "Same kind, different details. A difference that can be passed on is variation.", "not-copies"],

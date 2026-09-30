@@ -195,6 +195,10 @@
     title.tabIndex = -1;
     lessonRoot.appendChild(title);
 
+    if (typeof shareBar === "function") {
+      lessonRoot.appendChild(shareBar("learn.html#" + lesson.id, lesson.title + ". Genetics, one idea at a time."));
+    }
+
     const idea = document.createElement("p");
     idea.className = "idea";
     idea.textContent = lesson.idea;
@@ -236,7 +240,7 @@
       video.preload = "metadata";
       [["mp4", 'video/mp4; codecs="avc1.64001f, mp4a.40.2"'], ["webm", 'video/webm; codecs="vp9, opus"']].forEach(([ext, type]) => {
         const source = document.createElement("source");
-        source.src = "../lecture/scenes/" + file + "." + ext + "?v=5";
+        source.src = "../lecture/scenes/" + file + "." + ext + "?v=6";
         source.type = type;
         video.appendChild(source);
       });

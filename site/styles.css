@@ -587,6 +587,24 @@ body.home {
   font-size: 14px;
 }
 .jumps a:hover, .home-jump:hover { border-color: var(--accent); }
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  font-size: 14px;
+}
+.share span { color: var(--muted); margin-right: 2px; }
+.share a {
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 6px 10px;
+}
+.share a:hover { border-color: var(--accent); }
+.share a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .home-onion { margin: 8px 0 28px; }
 .home-ring {
   display: grid;
