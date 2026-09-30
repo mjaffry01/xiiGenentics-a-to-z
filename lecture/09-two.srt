@@ -1,0 +1,51 @@
+1
+00:00:00,136 --> 00:00:03,370
+Yellow seed is dominant to green Round seed
+
+2
+00:00:03,382 --> 00:00:06,703
+is dominant to wrinkled Follow both at once
+
+3
+00:00:07,096 --> 00:00:09,792
+A plant heterozygous for both makes four gametes
+
+4
+00:00:09,804 --> 00:00:13,260
+in equal number both dominants yellow wrinkled green
+
+5
+00:00:13,272 --> 00:00:16,789
+round and both recessives The next generation shows
+
+6
+00:00:16,801 --> 00:00:20,257
+about nine three three and one There are
+
+7
+00:00:20,270 --> 00:00:24,412
+sixteen boxes Nine sixteenths is fifty-six point two
+
+8
+00:00:24,424 --> 00:00:28,015
+five percent Three sixteenths is eighteen point seven
+
+9
+00:00:28,027 --> 00:00:31,385
+five percent For pods green is dominant to
+
+10
+00:00:31,397 --> 00:00:35,159
+yellow and inflated is dominant to constricted Yellow
+
+11
+00:00:35,172 --> 00:00:38,566
+inflated pods are a three-out-of-sixteen class not the
+
+12
+00:00:38,578 --> 00:00:41,373
+nine This free shuffle fails when the two
+
+13
+00:00:41,385 --> 00:00:43,689
+genes sit close on the same chromosome

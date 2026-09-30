@@ -1,0 +1,75 @@
+1
+00:00:00,100 --> 00:00:02,674
+A red snapdragon crossed with white gives pink
+
+2
+00:00:03,518 --> 00:00:06,006
+Pink selfed gives one red two pink and
+
+3
+00:00:06,018 --> 00:00:09,241
+one white The letters are still one two
+
+4
+00:00:09,523 --> 00:00:14,266
+one Segregation did not fail The heterozygote has
+
+5
+00:00:14,278 --> 00:00:18,494
+its own look That is incomplete dominance Pink
+
+6
+00:00:18,506 --> 00:00:20,552
+crossed with red gives only red and pink
+
+7
+00:00:21,398 --> 00:00:24,633
+Blood groups are different The alleles I A
+
+8
+00:00:24,646 --> 00:00:26,165
+and I B both place a sugar when
+
+9
+00:00:26,177 --> 00:00:30,344
+they are together That is co-dominance Allele i
+
+10
+00:00:30,356 --> 00:00:33,788
+places none One person carries only two of
+
+11
+00:00:33,800 --> 00:00:36,986
+the three alleles Group O is two copies
+
+12
+00:00:36,999 --> 00:00:38,714
+of i so a parent who is I
+
+13
+00:00:38,726 --> 00:00:40,369
+A I B cannot have a child of
+
+14
+00:00:40,381 --> 00:00:42,746
+group O I A i with I B
+
+15
+00:00:42,758 --> 00:00:44,707
+i gives group O one time in four
+
+16
+00:00:45,552 --> 00:00:48,420
+The pea starch gene is pleiotropy not multiple
+
+17
+00:00:48,432 --> 00:00:53,285
+alleles Seed shape shows dominance Grain size does
+
+18
+00:00:53,298 --> 00:00:56,251
+not Skin colour in the textbook model is
+
+19
+00:00:56,263 --> 00:00:59,940
+several genes adding That pattern is non-Mendelian

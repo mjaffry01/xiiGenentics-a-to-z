@@ -1,0 +1,79 @@
+1
+00:00:00,111 --> 00:00:03,383
+Escherichia coli breaks lactose only when lactose is
+
+2
+00:00:03,396 --> 00:00:06,998
+there Three genes share one switch One cuts
+
+3
+00:00:07,010 --> 00:00:10,441
+lactose One lets lactose in One is a
+
+4
+00:00:10,453 --> 00:00:13,431
+helper A repressor made all the time from
+
+5
+00:00:13,444 --> 00:00:15,882
+gene i sits on the operator and blocks
+
+6
+00:00:15,895 --> 00:00:19,951
+the reader Lactose or allolactose pulls the repressor
+
+7
+00:00:19,963 --> 00:00:23,824
+off Glucose and galactose do not Gene i
+
+8
+00:00:23,836 --> 00:00:26,397
+has its own promoter It does not share
+
+9
+00:00:26,409 --> 00:00:28,958
+the promoter of the three genes If a
+
+10
+00:00:28,971 --> 00:00:31,544
+mutation leaves the repressor unable to bind the
+
+11
+00:00:31,556 --> 00:00:34,363
+inducer lactose cannot pull it off and the
+
+12
+00:00:34,375 --> 00:00:37,267
+three genes stay unread When a human cross
+
+13
+00:00:37,279 --> 00:00:39,951
+cannot be set up draw the family A
+
+14
+00:00:39,963 --> 00:00:43,076
+filled symbol shows the character A double line
+
+15
+00:00:43,088 --> 00:00:46,250
+means the couple are relatives A child affected
+
+16
+00:00:46,471 --> 00:00:50,245
+with parents clear fits a recessive allele Myotonic
+
+17
+00:00:50,257 --> 00:00:54,142
+dystrophy is the dominant example Haemophilia and colour
+
+18
+00:00:54,154 --> 00:00:57,709
+blindness travel on X Two sickle-cell carriers have
+
+19
+00:00:57,721 --> 00:00:59,596
+a one in four chance of an affected
+
+20
+00:00:59,609 --> 00:01:00,160
+child

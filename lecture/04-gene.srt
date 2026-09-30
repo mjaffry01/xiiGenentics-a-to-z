@@ -1,0 +1,43 @@
+1
+00:00:00,100 --> 00:00:02,061
+Mix red paint into white paint and the
+
+2
+00:00:02,073 --> 00:00:05,332
+red does not come back Inheritance is not
+
+3
+00:00:05,344 --> 00:00:08,494
+paint A hidden character can vanish for one
+
+4
+00:00:08,506 --> 00:00:12,219
+generation and return unchanged So the message stays
+
+5
+00:00:12,231 --> 00:00:15,013
+in pieces A piece is a gene the
+
+6
+00:00:15,026 --> 00:00:18,616
+information for a character Mendel called these pieces
+
+7
+00:00:18,628 --> 00:00:22,685
+factors From eighteen fifty-six to eighteen sixty-three he
+
+8
+00:00:22,697 --> 00:00:26,753
+counted seven pea characters using fourteen true-breeding varieties
+
+9
+00:00:27,599 --> 00:00:30,650
+Trichomes were not one of those characters A
+
+10
+00:00:30,663 --> 00:00:33,359
+true-breeding line keeps the same trait after repeated
+
+11
+00:00:33,371 --> 00:00:34,302
+self-pollination

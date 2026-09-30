@@ -1,0 +1,47 @@
+1
+00:00:00,124 --> 00:00:02,893
+For each character you carry two copies one
+
+2
+00:00:02,905 --> 00:00:05,564
+from each parent The two versions of one
+
+3
+00:00:05,576 --> 00:00:08,725
+gene are alleles If they match the body
+
+4
+00:00:08,738 --> 00:00:12,562
+is homozygous If they differ it is heterozygous
+
+5
+00:00:12,953 --> 00:00:15,699
+The letters are the genotype The look is
+
+6
+00:00:15,711 --> 00:00:18,529
+the phenotype A tall pea may be capital
+
+7
+00:00:18,542 --> 00:00:21,458
+T capital T or capital T small t
+
+8
+00:00:21,471 --> 00:00:24,007
+Looking does not tell you which Use one
+
+9
+00:00:24,020 --> 00:00:27,219
+letter for one gene Capital T and small
+
+10
+00:00:27,231 --> 00:00:30,344
+t belong together Capital T and the letter
+
+11
+00:00:30,356 --> 00:00:32,574
+d do not because you cannot see that
+
+12
+00:00:32,586 --> 00:00:33,359
+they are a pair

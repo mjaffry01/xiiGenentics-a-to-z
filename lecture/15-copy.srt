@@ -1,0 +1,67 @@
+1
+00:00:00,111 --> 00:00:03,235
+The two strands separate New letters are laid
+
+2
+00:00:03,248 --> 00:00:06,189
+on by the pairing rules Each daughter ladder
+
+3
+00:00:06,202 --> 00:00:10,405
+keeps one parental strand That is semiconservative copying
+
+4
+00:00:10,784 --> 00:00:14,020
+Meselson and Stahl grew bacteria on heavy nitrogen
+
+5
+00:00:14,338 --> 00:00:17,782
+then switched to light nitrogen After one generation
+
+6
+00:00:17,794 --> 00:00:20,956
+every ladder was medium After two half were
+
+7
+00:00:20,968 --> 00:00:23,591
+medium and half were light They used the
+
+8
+00:00:23,603 --> 00:00:26,925
+bacterium not the pea Taylor showed the same
+
+9
+00:00:26,937 --> 00:00:30,172
+pattern in the bean Vicia faba The copier
+
+10
+00:00:30,368 --> 00:00:33,566
+DNA polymerase adds only from the five-prime end
+
+11
+00:00:33,578 --> 00:00:36,152
+toward the three-prime end It does not add
+
+12
+00:00:36,164 --> 00:00:39,203
+both ways One new strand grows toward the
+
+13
+00:00:39,216 --> 00:00:42,451
+fork The other is made in Okazaki fragments
+
+14
+00:00:42,463 --> 00:00:45,957
+and joined by ligase Ten heavy cells moved
+
+15
+00:00:45,969 --> 00:00:48,297
+to light nitrogen for sixty minutes with a
+
+16
+00:00:48,310 --> 00:00:51,533
+division every twenty minutes become eighty cells and
+
+17
+00:00:51,545 --> 00:00:53,996
+sixty of those have no heavy strand left

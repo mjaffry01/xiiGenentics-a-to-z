@@ -1,0 +1,17 @@
+# Lecture frames and intermediate audio can be rebuilt with lecture/build_lecture.py
+lecture/frames-*/
+lecture/*.wav
+lecture/*.mp3
+lecture/list.txt
+lecture/_cal.*
+
+# Per-scene clips. The finished lecture is genetics-lecture.mp4
+lecture/0*.mp4
+lecture/1*.mp4
+lecture/2*.mp4
+
+# Full NCERT chapter PDFs stay on this computer. They are the copyrighted textbook.
+chapters/**/*.pdf
+
+__pycache__/
+*.pyc

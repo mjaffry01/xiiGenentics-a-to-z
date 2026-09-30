@@ -1,0 +1,87 @@
+1
+00:00:00,100 --> 00:00:02,882
+Transcription copies one strand of one gene into
+
+2
+00:00:02,894 --> 00:00:07,244
+RNA The template is read The coding strand
+
+3
+00:00:07,256 --> 00:00:09,805
+matches the new RNA with U where DNA
+
+4
+00:00:09,817 --> 00:00:13,959
+had T Do not copy both strands A
+
+5
+00:00:13,972 --> 00:00:16,067
+unit has a promoter the gene and a
+
+6
+00:00:16,079 --> 00:00:20,013
+terminator In bacteria sigma helps the start and
+
+7
+00:00:20,026 --> 00:00:23,665
+rho helps the stop Those helpers are bacterial
+
+8
+00:00:24,511 --> 00:00:27,599
+Do not give them to a eukaryote Polymerase
+
+9
+00:00:27,611 --> 00:00:31,692
+one makes the large ribosomal RNAs Polymerase two
+
+10
+00:00:31,704 --> 00:00:35,712
+makes the messenger precursor Polymerase three makes transfer
+
+11
+00:00:35,724 --> 00:00:39,021
+RNA five S RNA and the small nuclear
+
+12
+00:00:39,033 --> 00:00:43,567
+RNAs In a eukaryote remove introns join exons
+
+13
+00:00:43,763 --> 00:00:46,361
+cap the five-prime end and add adenines at
+
+14
+00:00:46,374 --> 00:00:48,788
+the three-prime end before the message leaves the
+
+15
+00:00:48,800 --> 00:00:52,660
+nucleus Translation reads three letters at a time
+
+16
+00:00:53,506 --> 00:00:56,631
+AUG is methionine and the start It is
+
+17
+00:00:56,643 --> 00:01:02,391
+not also phenylalanine UAA UAG and UGA stop
+
+18
+00:01:03,236 --> 00:01:07,109
+AAA and AAG are both lysine The code
+
+19
+00:01:07,121 --> 00:01:11,373
+is specific degenerate and nearly universal It is
+
+20
+00:01:11,386 --> 00:01:15,332
+not a palindrome Transfer RNA is the adapter
+
+21
+00:01:16,177 --> 00:01:19,449
+The small subunit meets the message first In
+
+22
+00:01:19,462 --> 00:01:23,040
+bacteria twenty-three S RNA forms the peptide bond

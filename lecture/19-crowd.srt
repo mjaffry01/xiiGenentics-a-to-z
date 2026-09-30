@@ -1,0 +1,79 @@
+1
+00:00:00,136 --> 00:00:03,248
+Leave the single person Count the alleles in
+
+2
+00:00:03,261 --> 00:00:06,029
+the population Let p be the fraction of
+
+3
+00:00:06,042 --> 00:00:08,395
+allele A and q the fraction of a
+
+4
+00:00:08,787 --> 00:00:12,365
+If nothing pushes those fractions stay The fraction
+
+5
+00:00:12,377 --> 00:00:15,049
+of A A is p squared The fraction
+
+6
+00:00:15,061 --> 00:00:17,745
+of a a is q squared The fraction
+
+7
+00:00:17,757 --> 00:00:19,926
+of A a is two p q not
+
+8
+00:00:19,939 --> 00:00:22,708
+p q If p is zero point four
+
+9
+00:00:23,002 --> 00:00:25,723
+q is zero point six Then A A
+
+10
+00:00:25,735 --> 00:00:28,039
+is zero point one six A a is
+
+11
+00:00:28,051 --> 00:00:30,233
+zero point four eight and a a is
+
+12
+00:00:30,245 --> 00:00:33,235
+zero point three six A constant gene pool
+
+13
+00:00:33,248 --> 00:00:35,600
+is the quiet baseline It is not a
+
+14
+00:00:35,613 --> 00:00:39,645
+push Five things move the count Migration carries
+
+15
+00:00:39,657 --> 00:00:43,284
+alleles in or out Drift is chance strongest
+
+16
+00:00:43,297 --> 00:00:45,821
+in a small group The founder effect is
+
+17
+00:00:45,833 --> 00:00:47,684
+drift at the start of a new group
+
+18
+00:00:48,076 --> 00:00:52,108
+Mutation writes a new letter Recombination shuffles old
+
+19
+00:00:52,120 --> 00:00:55,821
+letters Natural selection means a heritable trait that
+
+20
+00:00:55,833 --> 00:00:58,051
+leaves more offspring becomes more common

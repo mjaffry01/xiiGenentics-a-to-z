@@ -1,0 +1,71 @@
+1
+00:00:00,136 --> 00:00:02,293
+A gene is a stretch of DNA a
+
+2
+00:00:02,305 --> 00:00:05,809
+ladder of four bases Adenine pairs with thymine
+
+3
+00:00:05,821 --> 00:00:09,093
+by two bonds Guanine pairs with cytosine by
+
+4
+00:00:09,105 --> 00:00:12,892
+three The rails run in opposite directions If
+
+5
+00:00:12,904 --> 00:00:15,110
+you know one side you know the other
+
+6
+00:00:15,466 --> 00:00:18,469
+Purines in both DNA and RNA are adenine
+
+7
+00:00:18,481 --> 00:00:21,912
+and guanine The sugar in RNA is ribose
+
+8
+00:00:22,304 --> 00:00:26,017
+The sugar in DNA is deoxyribose If adenine
+
+9
+00:00:26,029 --> 00:00:29,252
+is thirty percent thymine is thirty and guanine
+
+10
+00:00:29,265 --> 00:00:32,500
+and cytosine are twenty each Human DNA is
+
+11
+00:00:32,512 --> 00:00:34,926
+far longer than the nucleus so it wraps
+
+12
+00:00:34,939 --> 00:00:38,640
+on histones Histones are positive and basic rich
+
+13
+00:00:38,652 --> 00:00:41,213
+in lysine and arginine eight in an octamer
+
+14
+00:00:41,569 --> 00:00:44,988
+DNA is the negative partner A statement that
+
+15
+00:00:45,000 --> 00:00:48,505
+reverses those charges is wrong Loose chromatin can
+
+16
+00:00:48,517 --> 00:00:52,390
+be read Dense chromatin cannot Watson and Crick
+
+17
+00:00:52,402 --> 00:00:55,772
+proposed the ladder in nineteen fifty-three using Franklin
+
+18
+00:00:55,858 --> 00:00:57,904
+and Wilkins and Chargaff's rule

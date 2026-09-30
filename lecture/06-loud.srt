@@ -1,0 +1,43 @@
+1
+00:00:00,100 --> 00:00:03,115
+Mendel crossed true-breeding tall peas with true-breeding dwarf
+
+2
+00:00:03,127 --> 00:00:06,288
+peas Every plant in the first generation was
+
+3
+00:00:06,300 --> 00:00:10,467
+tall None were in between The dwarf copy
+
+4
+00:00:10,479 --> 00:00:14,241
+was still there It was silent Tall is
+
+5
+00:00:14,253 --> 00:00:18,334
+dominant Dwarf is recessive This is not a
+
+6
+00:00:18,347 --> 00:00:21,521
+prize for strength It describes this pair of
+
+7
+00:00:21,533 --> 00:00:24,817
+alleles The law of dominance says factors occur
+
+8
+00:00:24,829 --> 00:00:27,293
+in pairs one of a dissimilar pair dominates
+
+9
+00:00:27,501 --> 00:00:29,670
+and only one parental character shows in that
+
+10
+00:00:29,682 --> 00:00:32,942
+first generation The return of both characters in
+
+11
+00:00:32,954 --> 00:00:34,780
+the next generation is a different law

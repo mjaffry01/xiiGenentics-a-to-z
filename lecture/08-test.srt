@@ -1,0 +1,51 @@
+1
+00:00:00,100 --> 00:00:02,772
+A tall plant might be homozygous or heterozygous
+
+2
+00:00:03,616 --> 00:00:06,300
+You cannot see which Cross it with a
+
+3
+00:00:06,312 --> 00:00:10,001
+dwarf plant two small t If every child
+
+4
+00:00:10,013 --> 00:00:12,317
+is tall the tall parent gave only capital
+
+5
+00:00:12,329 --> 00:00:15,381
+T If about half the children are dwarf
+
+6
+00:00:15,589 --> 00:00:17,905
+the tall parent was also giving small t
+
+7
+00:00:18,751 --> 00:00:21,594
+That cross is a test cross A back
+
+8
+00:00:21,606 --> 00:00:24,829
+cross is wider It is the first generation
+
+9
+00:00:24,842 --> 00:00:28,236
+crossed with either parent Every test cross against
+
+10
+00:00:28,249 --> 00:00:31,165
+the recessive parent is a back cross A
+
+11
+00:00:31,177 --> 00:00:33,040
+back cross to the dominant parent is not
+
+12
+00:00:33,052 --> 00:00:36,680
+a test cross Self-pollination cannot settle the two
+
+13
+00:00:36,692 --> 00:00:39,695
+tall genotypes because both can have tall children

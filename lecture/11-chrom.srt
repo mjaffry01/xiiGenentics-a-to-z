@@ -1,0 +1,67 @@
+1
+00:00:00,111 --> 00:00:03,984
+Genes sit on chromosomes Chromosomes occur in pairs
+
+2
+00:00:04,241 --> 00:00:06,386
+and a gamete receives one from each pair
+
+3
+00:00:06,777 --> 00:00:08,811
+Different pairs can line up in more than
+
+4
+00:00:08,824 --> 00:00:12,316
+one way That is independent assortment seen in
+
+5
+00:00:12,328 --> 00:00:15,968
+the cell Sutton and Boveri proposed the chromosomal
+
+6
+00:00:15,980 --> 00:00:18,934
+theory Morgan tested it in the fruit fly
+
+7
+00:00:19,314 --> 00:00:22,022
+He did not propose it When two genes
+
+8
+00:00:22,034 --> 00:00:25,441
+sit on the same chromosome parental combinations outnumber
+
+9
+00:00:25,453 --> 00:00:29,216
+new ones That is linkage A new combination
+
+10
+00:00:29,228 --> 00:00:32,941
+is recombination White and yellow recombined in only
+
+11
+00:00:32,953 --> 00:00:35,980
+one point three percent White and miniature wing
+
+12
+00:00:35,993 --> 00:00:40,417
+recombined in thirty-seven point two percent Sturtevant not
+
+13
+00:00:40,429 --> 00:00:44,473
+Morgan used those percentages as distance One percent
+
+14
+00:00:44,485 --> 00:00:47,488
+is one map unit Put the largest percent
+
+15
+00:00:47,500 --> 00:00:50,577
+at the two ends Crossing over stays inside
+
+16
+00:00:50,589 --> 00:00:53,983
+one pair and uses recombinase A gene joins
+
+17
+00:00:53,995 --> 00:00:56,091
+a different group by translocation
